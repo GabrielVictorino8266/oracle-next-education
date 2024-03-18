@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+body{
+    height: 100vh;
+    background-color: #000000;
+    color: #F6F6F6;
+}
+
+.apresentacao{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 550px;
+}
+
+.titulo-destaque{
+    color: #22D4FD;
+}
+
+.conteudo-escrito{
+    width: 550px;
+    height: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.conteudo-escrito .titulo{
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.conteudo-escrito .texto{
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.conteudo-escrito .links{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    gap: 5rem;
+}
+
+.conteudo-escrito .links a{
+    text-align: center;
+    font-size: 1.1rem;
+    color: #000;
+    text-decoration: none;
+    background-color: #22D4FD;
+    border-radius: 6px;
+    width: 160px;
+    line-height: 50px;
+}
+
+img{
+    height: auto;
+    width: auto;
+}
