@@ -8,10 +8,7 @@ public class Main {
     public static String tipoConta = "Corrente";
 
     public static void main(String[] args) {
-        int opcao;
-//        String nomeCliente= "Gabriel Victorino";
-//        double saldo = 2500.00;
-//        String tipoConta = "Corrente";
+        int opcao = 0;
         double valorOperacao = 0.0;
 
         Scanner input = new Scanner(System.in);
@@ -38,11 +35,15 @@ public class Main {
             }else if(opcao == 2) {
                 System.out.println("Informe o valor a depositar: R$");
                 valorOperacao = input.nextDouble();
-                receberValor(valorOperacao, saldo);
-                System.out.println("receberValor");
+                saldo = receberValor(valorOperacao, saldo);
             }else if(opcao == 3){
-                //transferirValor();
-                System.out.println("transferirValor");
+                System.out.println("Informe o valor a transferir: R$");
+                valorOperacao = input.nextDouble();
+                if (saldo >= valorOperacao) {
+                    saldo = transferirValor(valorOperacao, saldo);
+                }else{
+                    System.out.println("Lamento, mas a operacao nao pode ser realizada.");
+                }
             }
         }
     }
@@ -63,12 +64,28 @@ public class Main {
         System.out.println("****************FIM OPERACAO****************\n\n");
     }
 
-    public static void receberValor(double valorOperacao, double saldo) {
+    public static double receberValor(double valorOperacao, double saldo) {
         System.out.println("***RECEBER VALOR***");
         saldo += valorOperacao;
         System.out.println("Voce depositara: R$" + valorOperacao);
         System.out.println("Saldo atualizado: R$" + saldo);
         System.out.println("****************FIM OPERACAO****************\n\n");
+        return  saldo;
     }
 
+    public static double transferirValor(double valorOperacao, double saldo) {
+        String contaTransferencia;
+        Scanner inputConta = new Scanner(System.in);
+
+        System.out.println("***TRANSFERIR VALOR***");
+        saldo -= valorOperacao;
+        System.out.println("Informe a conta que ira Transferir: ");
+        contaTransferencia = inputConta.nextLine();
+        System.out.println("Voce ira transferir: R$" + valorOperacao);
+        System.out.println("Saldo atualizado: R$" + saldo);
+        System.out.println("Voce transferiu R$" + valorOperacao + " para a conta: " + contaTransferencia);
+        System.out.println("****************FIM OPERACAO****************\n\n");
+
+        return saldo;
+    }
 }
